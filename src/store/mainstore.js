@@ -20,7 +20,7 @@ const mutations = {
     state.sobres.push(sobre)
   },
   SELECIONAR_SOBRE (state,sobreId) {
-    index = state.sobres.findIndex((s) => s.id === sobreId)
+    const index = state.sobres.findIndex((s) => s.id === sobreId)
     state.sobreSelecionado = state.sobres[index]
   }
 

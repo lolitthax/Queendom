@@ -18,9 +18,11 @@
   <h1>Editar - Sobre</h1>
     </div>
       <div class="q-pa-md" style="max-width: 100%; margin-top:10px;">  
-         <q-input outlined label="Título" v-model="titulo" style="margin-bottom: 10px"/>  
+         <q-input outlined label="Id" v-model="sobreSelecionado.id" style="margin-bottom: 10px"
+         :disable="true" /> 
+          <q-input outlined label="Título" v-model="sobreSelecionado.titulo" style="margin-bottom: 10px"/>  
     <q-input
-    v-model="descricao" 
+    v-model="sobreSelecionado.descricao" 
       filled
       type="textarea"
       label="Texto"
@@ -34,7 +36,7 @@
   
 </template>
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters } from 'vuex'
 
 export default{
     name: 'AdicionarSobre',
@@ -51,6 +53,9 @@ export default{
        await this.adicionarSobre({ titulo: this.titulo, descricao: this.descricao})
        this.$router.push('/sobre')
       }
+    },
+    computed: {
+      ...mapGetters('mainstore', ['sobreSelecionado'])
     }
 }
 </script>
