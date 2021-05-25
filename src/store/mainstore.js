@@ -11,6 +11,9 @@ const mutations = {
   SET_TOKEN (state, token) {      
     state.token = token
   },
+  SET_SOBRES (state, sobres){
+    state.sobres = sobres
+  },
   ADICIONAR_SOBRE(state, sobre){
     state.sobres.push(sobre)
   }
@@ -63,6 +66,12 @@ const actions = {
       icon: 'verify'
     })  
     })
+  },
+  obterSobres ({ commit }){
+    api.get('/sobre')
+    .then((response) => {
+      commit('SET_SOBRES', response.data)
+    })
   }
 
 }
@@ -70,6 +79,7 @@ const actions = {
 const getters = {
   token: (state) => state.token,
   sobres: (state) => state.sobres
+  
   
 
 }

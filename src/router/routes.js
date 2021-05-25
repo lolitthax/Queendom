@@ -47,6 +47,12 @@ const routes = [{
          
     },
     {
+        path: '/edsobre',
+        component: () =>
+            import ('pages/Dashboard/sobreedit.vue'),
+            
+    },
+    {
         path: '/adpaquera',
         component: () =>
             import ('pages/Dashboard/paquera.vue'),
