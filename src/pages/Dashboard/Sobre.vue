@@ -56,9 +56,13 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'PageListaSobre',
   methods: {
-    ...mapActions('mainstore', ['obterSobres']),
+    ...mapActions('mainstore', ['obterSobres', 'selecionarSobre']),
     abrirCadastroSobre () {
       this.$router.push('/adsobre')
+    },
+    alterar (sobreId){
+      this.selecionarSobre(sobreId)
+      this.$router.push('/edsobre')
     }
   },
   computed: {
