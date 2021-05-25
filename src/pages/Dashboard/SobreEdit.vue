@@ -29,23 +29,7 @@
         <q-btn color="secondary" class="full-width" label="Salvar" @click="cadastrarSobre()"  />
 
   </div>
-    <div class="q-pa-md" style="max-width: 100%">
-    <q-list bordered>
-      <q-item clickable v-ripple>
-        <q-item-section avatar>
-          <q-icon color="indigo" name="info" />
-        </q-item-section>
-        <q-item-section> </q-item-section>
-        <q-item-section top side>
-          <div class="text-grey-8 q-gutter-xs">
-            <q-btn class="gt-xs" size="12px" flat dense round icon="delete" color="red-14" />
-            <q-btn class="gt-xs" size="12px" flat dense round icon="visibility" color="blue" />
-    
-          </div>
-        </q-item-section>
-      </q-item>
-      </q-list>
-      </div>
+
   </div>
   
 </template>
