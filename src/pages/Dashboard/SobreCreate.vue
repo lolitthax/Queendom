@@ -38,7 +38,7 @@
         <q-item-section> </q-item-section>
         <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
-            <q-btn class="gt-xs" size="12px" flat dense round icon="visibility" color="blue" />
+            <q-btn class="gt-xs" size="12px" flat dense round icon="visibility" color="blue" @click="alterar(sobre.id)" />
             <q-btn class="gt-xs" size="12px" flat dense round icon="delete" color="red-14" />
           </div>
         </q-item-section>

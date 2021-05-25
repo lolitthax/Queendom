@@ -3,7 +3,8 @@ import { api } from 'boot/axios'
 
 const state = {
   token: '',
-  sobres: []
+  sobres: [],
+  sobreSelecionado: ''
 
 }
 
@@ -11,11 +12,16 @@ const mutations = {
   SET_TOKEN (state, token) {      
     state.token = token
   },
+  //SOBRE
   SET_SOBRES (state, sobres){
     state.sobres = sobres
   },
   ADICIONAR_SOBRE(state, sobre){
     state.sobres.push(sobre)
+  },
+  SELECIONAR_SOBRE (state,sobreId) {
+    index = state.sobres.findIndex((s) => s.id === sobreId)
+    state.sobreSelecionado = state.sobres[index]
   }
 
 }
@@ -72,13 +78,17 @@ const actions = {
     .then((response) => {
       commit('SET_SOBRES', response.data)
     })
+  },
+  selecionarSobre ({ commit }, sobreId) {
+    commit('SELECIONAR_SOBRE', sobreId)
   }
 
 }
 
 const getters = {
   token: (state) => state.token,
-  sobres: (state) => state.sobres
+  sobres: (state) => state.sobres,
+  sobreSelecionado: (state) => state.sobreSelecionado
   
   
 
