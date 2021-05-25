@@ -6,14 +6,13 @@
       <q-space />
 
       <q-btn-toggle
-        v-model="model"
         flat stretch
         toggle-color="yellow"
         :options="[
-          {label: 'Início', value: 'one'},
-          {label: 'Sobre', value: 'two'},
-          {label: 'Personagens', value: 'three'},
-           {label: 'Departamento', value: 'four'}
+          {label: 'Início'},
+          {label: 'Sobre'},
+          {label: 'Personagens'},
+           {label: 'Departamento'}
         ]"
       />
     </q-toolbar>

@@ -1,8 +1,22 @@
 <template>
-<div>
- <q-page class="flex flex-center">
-    <h1>Sobre</h1>
-    <q-list bordered class="rounded-borders" style="max-width: 600px">
+  <div>
+    <div class="q-gutter-y-md" style="max-width: 100%">
+  
+
+      <q-tabs
+        inline-label
+        mobile-arrows
+        class="bg-pink-5 text-white shadow-2"
+      >
+        <q-tab icon="library_books" label="Sobre" />
+        <q-tab icon="favorite" label="Personagens" />
+        <q-tab icon="school" label="Departamentos" />
+        <q-tab icon="home" label="Voltar a Dashboard" />
+
+      </q-tabs>
+
+ <center> <h1>Lista - Sobre</h1></center>
+ <q-list bordered class="rounded-borders" style="max-width: 600px">
       <q-item-label header>Google Inbox style</q-item-label>
 
       <q-item>
@@ -69,24 +83,14 @@
         </q-item-section>
       </q-item>
     </q-list>
-    <q-btn
-      round
-      color="primary"
-      class="fixed"
-      style="right: 18px; bottom: 18px"
-      @click="abrirCadastroSobre()"
-    >
-      <q-icon name="add" />
-    </q-btn> 
-  </q-page>
-
-</div>
- 
+    </div>
+  </div>
+  
 </template>
 
 <script>
 export default {
-  name: 'PageSobre',
+  name: 'PageListaSobre',
   methods: {
     abrirCadastroSobre () {
       this.$router.push('/adsobre')
@@ -94,3 +98,4 @@ export default {
   }
 }
 </script>
+
