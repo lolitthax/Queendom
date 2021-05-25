@@ -39,7 +39,7 @@
             <q-btn  size="12px" flat dense round icon="edit" color="indigo"  @click="alterar(sobre.id)" />
             <q-btn  size="12px" flat dense round icon="delete" color="red-14" />
             
-          </div>
+          </div>  
         </q-item-section>
       </q-item>
 
@@ -61,7 +61,7 @@ export default {
     abrirCadastroSobre () {
       this.$router.push('/adsobre')
     },
-    alterar (sobreId){
+    alterar (sobreId){  
       this.selecionarSobre(sobreId)
       this.$router.push('/edsobre')
     }

@@ -28,7 +28,7 @@
       label="Texto"
       style="margin-bottom: 15px"
     />
-        <q-btn color="secondary" class="full-width" label="Salvar" @click="cadastrarSobre()"  />
+        <q-btn color="secondary" class="full-width" label="Salvar alterações" @click="alterar()"  />
 
   </div>
 
@@ -39,7 +39,7 @@
 import {mapActions, mapGetters } from 'vuex'
 
 export default{
-    name: 'AdicionarSobre',
+    name: 'EditarSobre',
     data(){
       return{
         titulo: '',
@@ -48,9 +48,9 @@ export default{
       }
     },
     methods: {
-      ...mapActions('mainstore',['adicionarSobre']),
-      async cadastrarSobre (){
-       await this.adicionarSobre({ titulo: this.titulo, descricao: this.descricao})
+      ...mapActions('mainstore',['alterarSobre']),
+      async alterar (){
+       await this.alterarSobre(this.sobreSelecionado)
        this.$router.push('/sobre')
       }
     },

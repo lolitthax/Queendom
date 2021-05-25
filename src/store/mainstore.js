@@ -22,6 +22,10 @@ const mutations = {
   SELECIONAR_SOBRE (state,sobreId) {
     const index = state.sobres.findIndex((s) => s.id === sobreId)
     state.sobreSelecionado = state.sobres[index]
+  },
+  ALTERAR_SOBRE (state, sobre){
+    const index = state.sobre.findIndex((s) => s.id === sobre.id)
+    state.sobres.set(index, sobre)
   }
 
 }
@@ -81,6 +85,12 @@ const actions = {
   },
   selecionarSobre ({ commit }, sobreId) {
     commit('SELECIONAR_SOBRE', sobreId)
+  },
+  alterarSobre({ commit }, sobre){
+    api.put('/sobre/'+ sobre.id, sobre)
+    .then((response) => {
+      commit('ALTERAR_PRODUTO', response.data)
+    })
   }
 
 }
