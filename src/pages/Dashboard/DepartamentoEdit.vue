@@ -48,7 +48,7 @@ export default{
       }
     },
     methods: {
-      ...mapActions('mainstore',['departamentoSobre']),
+      ...mapActions('mainstore',['alterarDepartamento']),
       async alterar (){
        await this.alterarDepartamento(this.departamentoSelecionado)
        this.$router.push('/departamento')
