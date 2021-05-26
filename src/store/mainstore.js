@@ -4,7 +4,11 @@ import { api } from 'boot/axios'
 const state = {
   token: '',
   sobres: [],
-  sobreSelecionado: ''
+  sobreSelecionado: '',
+  paqueras: [],
+  paqueraSelecionado: '',
+  departamentos: [],
+  departamentoSlecionado: ''
 
 }
 
@@ -26,7 +30,38 @@ const mutations = {
   ALTERAR_SOBRE (state, sobre){
     const index = state.sobre.findIndex((s) => s.id === sobre.id)
     state.sobres.set(index, sobre)
-  }
+  },
+  //PAQUERAS
+  SET_PAQUERAS(state, paqueras){
+    state.paqueras = paqueras
+  },
+  ADICIONAR_PAQUERA(state,paquera){
+    state.paqueras.push(paquera)
+  },
+  SELECIONAR_PAQUERA(state,paqueraId){
+    const index = state.paqueras.findIndex((p) => p.id === paqueraId)
+    state.paqueraSelecionado = state.paqueras[index]
+  },
+  ALTERAR_PAQUERA(state,paquera){
+    const index = state.paqueras.findIndex((p) => p.id === paqueraId)
+    state.paqueras.set(index,paquera)
+  },
+
+  //DEPARTAMENTOS
+ SET_DEPARTAMENTOS(state, departamentos){
+   state.departamentos = departamentos
+ },
+ ADICIONAR_DEPARTAMENTO(state,departamento){
+  state.departamentos.push(departamento)
+ },
+ SELECIONAR_DEPARTAMENTO(state,departamentoId){
+  const index = state.departamentos.findIndex((d) => d.id === departamentoId)
+  state.departamentoSelecionado = state.departamentos[index]
+ },
+ ALTERAR_DEPARTAMENTO(state, departamento){
+  const index = state.departamentos.findIndex((d) => d.id === departamentoId)
+  state.departamentos.set(index,departamento)
+ }
 
 }
 
@@ -67,6 +102,7 @@ const actions = {
       return response
     })    
   },
+  //SOBRE
   adicionarSobre ({commit}, sobre){
     api.post('/sobre', sobre)
     .then((response) => {
@@ -91,6 +127,59 @@ const actions = {
     .then((response) => {
       commit('ALTERAR_PRODUTO', response.data)
     })
+  },
+  //PAQUERA
+  adicionarPaquera ({commit}, paquera){
+    api.post('/paquera',paquera)
+    .then((response) => {
+      commit('ADICIONAR_PAQUERA', response.data)
+      Notify.create({ color: 'positive', position:'top',
+      message: 'Cadastro concluído com sucesso!',
+      icon: 'verify'
+    })
+    })
+  },
+  obterPaqueras ({ commit }){
+    api.get('/paquera')
+    .then((response) => {
+      commit('SET_PAQUERAS', response.data)
+    })
+  },
+  selecionarPaquera ({ commit }, paqueraId){
+    commit('SELECIONAR_PAQUERA', paqueraId)
+  },
+  alterarPaquera({ commit }, paquera){
+    api.put('/paquera/'+ paquera.id,paquera)
+    .then((response) => {
+      commit('ALTERAR_PAQUERA', response.data)
+    })
+  },
+
+  //DEPARTAMENTO
+  adicionarDepartamento ({commit}, departamento){
+    api.post('/departamento',departamento)
+    .then((response) => {
+      commit('ADICIONAR_DEPARTAMENTO', response.data)
+      Notify.create({ color: 'positive', position:'top',
+      message: 'Cadastro concluído com sucesso!',
+      icon: 'verify'
+    })
+    })
+  },
+  obterDepartamentos ({ commit }){
+    api.get('/departamento')
+    .then((response) => {
+      commit('SET_DEPARTAMENTO', response.data)
+    })
+  },
+  selecionarDepartamento ({ commit }, departamentoId){
+    commit('SELECIONAR_DEPARTAMENTO', departamentoId)
+  },
+  alterarDepartamento({ commit }, departamento){
+    api.put('/departamento/'+ departamento.id,departamento)
+    .then((response) => {
+      commit('ALTERAR_DEPARTAMENTO', response.data)
+    })
   }
 
 }
@@ -98,7 +187,11 @@ const actions = {
 const getters = {
   token: (state) => state.token,
   sobres: (state) => state.sobres,
-  sobreSelecionado: (state) => state.sobreSelecionado
+  sobreSelecionado: (state) => state.sobreSelecionado,
+  paqueras: (state) => state.paqueras,
+  paqueraSelecionado: (state) => state.paqueraSelecionado,
+  departamentos: (state) => state.departamentos,
+  departamentoSelecionado: (state) => state.departamentoSlecionado
   
   
 

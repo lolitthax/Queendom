@@ -53,15 +53,37 @@ const routes = [{
             
     },
     {
-        path: '/adpaquera',
+        path: '/paquera',
         component: () =>
             import ('pages/Dashboard/paquera.vue'),
+    },
+    {
+        path: '/adpaquera',
+        component: () =>
+            import ('pages/Dashboard/paqueracreate.vue'),
            
+    },
+    {
+        path: '/edpaquera',
+        component: () =>
+            import ('pages/Dashboard/paqueraedit.vue'),
+            
+    },
+    {
+        path: '/departamento',
+        component: () =>
+            import ('pages/Dashboard/departamento.vue'),
     },
     {
         path: '/addepartamento',
         component: () =>
-            import ('pages/Dashboard/departamento.vue'),
+            import ('pages/Dashboard/departamentocreate.vue'),
+            
+    },
+    {
+        path: '/eddepartamento',
+        component: () =>
+            import ('pages/Dashboard/departamentoedit.vue'),
             
     },
     
