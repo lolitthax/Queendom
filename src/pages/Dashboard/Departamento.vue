@@ -8,93 +8,70 @@
         mobile-arrows
         class="bg-pink-5 text-white shadow-2"
       >
-        <q-tab name="mails" icon="library_books" label="Sobre" />
-        <q-tab name="alarms" icon="favorite" label="Personagens" />
-        <q-tab name="movies" icon="school" label="Departamentos" />
-          <q-tab name="movies" icon="home" label="Voltar a Dashboard" />
+        <q-tab icon="library_books" label="Sobre" />
+        <q-tab icon="favorite" label="Personagens" />
+        <q-tab icon="school" label="Departamentos" />
+        <q-tab icon="home" label="Voltar a Dashboard" />
 
       </q-tabs>
 
-
-    </div>
-      <div class="q-pa-md" style="max-width: 100%; margin-top:10px;">
-        <q-input outlined v-model="codigod" label="Código" style="margin-bottom: 10px"/>   
-         <q-input outlined v-model="titulod" label="Título" style="margin-bottom: 10px"/>  
-    <q-input
-      v-model="descricaod"
-      filled
-      type="textarea"
-      label="Texto"
-      style="margin-bottom: 15px"
-    />
-        <q-btn color="secondary" class="full-width" label="Salvar" @click="adicionarDepartamento()" />
-
-  </div>
-    <div class="q-pa-md" style="max-width: 100%">
-    <q-list bordered>
-      <q-item clickable v-ripple v-for="(departamento, index) in listaDepartamento" :key="index">
-        <q-item-section avatar>
-          <q-icon color="indigo" name="info" />
+ <center> <h1>Lista - Departamentos</h1></center>
+ <q-list bordered class="rounded-borders">
+  
+      <q-item v-for="departamento in departamentos" :key="departamento.id_dep">
+        <q-item-section avatar top>
+          <q-icon name="school" color="black" size="34px" />
         </q-item-section>
-        <q-item-section> {{ departamento.codigod }} - {{ departamento.titulod }} - {{ departamento.descricaod }} </q-item-section>
+
+        <q-item-section top>
+          <q-item-label lines="1">
+            <span class="text-weight-medium">{{ departamento.id_dep }}</span>
+            <span class="text-grey-8">   {{ departamento.titulo_dep }} </span>
+          </q-item-label>
+          <q-item-label lines="1" class="q-mt-xs text-body2 text-weight-bold text-positive">
+            <span class="cursor-pointer"></span>
+              {{ departamento.descricao_dep }}
+          </q-item-label>
+        </q-item-section>
+        
         <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
-            <q-btn class="gt-xs" size="12px" flat dense round icon="delete" color="red-14" @click="removerDepartamento(index)" />
-            <q-btn class="gt-xs" size="12px" flat dense round icon="visibility" color="blue"/>
-    
-          </div>
+            <q-btn  size="12px" flat dense round icon="edit" color="indigo"  @click="alterar(departamento.id_dep)" />
+            <q-btn  size="12px" flat dense round icon="delete" color="red-14" />
+            
+          </div>  
         </q-item-section>
       </q-item>
-      </q-list>
-      </div>
+
+
+      <q-separator spaced />
+
+    </q-list>
+    </div>
   </div>
   
 </template>
-<script>
-export default{
-    data(){
-        return{
-            codigod: '',
-            titulod: '',
-            descricaod: '',
-            listaDepartamento: [
-                {codigod:1, titulod: 'Texto', descricaod: 'Texto'},
-                {codigod:2, titulod: 'Texto', descricaod: 'Texto'}
-            ]
-        }
-    },
-    methods: {
-        adicionarDepartamento(){
-            this.listaDepartamento.push( {codigod: this.codigod, titulod:
-            this.titulod, descricaod: this.descricaod} )
-        this.codigod = ''
-        this.titulod = ''
-        this.descricaod = ''
-        },
-        removerDepartamento(index){
-            this.$q.dialog({
-                title: 'Excluir',
-                message: 'Deseja excluir este item?',
-                cancel: {
-                    label: 'Cancelar'
-                },
-                ok: {
-                    label: 'Excluir'
-                },
-                persistent: true
-            }).onOk(() => {
-                this.listaDepartamento.splice(index,1)
-                    this.$q.notify({
-                        message: 'Item removido!',
-                        icon: 'done',
-                        color: 'positive'
-                    })
-            }).onCancel(() => {
 
-            })
-            
-        }
+<script>
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  name: 'PageListaDepartamento',
+  methods: {
+    ...mapActions('mainstore', ['obterDepartamentos', 'selecionarDepartamento']),
+    abrirCadastroDepartamento () {
+      this.$router.push('/addepartamento')
+    },
+    alterar (departamentoId){  
+      this.selecionarDepartamento(departamentoId)
+      this.$router.push('/eddepartamento')
     }
+  },
+  computed: {
+    ...mapGetters('mainstore', ['departamentos'])
+  },
+  created () {
+    this.obterDepartamentos()
+  }
 }
 </script>
 
