@@ -12,9 +12,9 @@
                            <div class="q-gutter-md q-pb-md">
                 <q-btn color="primary" label="Login" @click="efetuarLogin()" />
               </div> 
-              <!-- <div class="q-gutter-md q-pb-md" v-if="token"> -->
+              <div class="q-gutter-md q-pb-md" v-if="token">
                 <q-btn color="primary" label="Logout" @click="efetuarLogout()" />
-              <!-- </div>  -->
+              </div> 
                         
                     
                     </form>
