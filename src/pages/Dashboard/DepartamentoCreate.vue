@@ -15,7 +15,7 @@
 
       </q-tabs>
 
-  <h1>departamento</h1>
+ <center> <h1>Departamentos</h1></center>
     </div>
       <div class="q-pa-md" style="max-width: 100%; margin-top:10px;">  
          <q-input outlined label="Título" v-model="titulo_dep" style="margin-bottom: 10px"/>  

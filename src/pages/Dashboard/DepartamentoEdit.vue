@@ -15,7 +15,7 @@
 
       </q-tabs>
 
-  <h1>Editar - Departamentos</h1>
+  <center><h1>Editar - Departamentos</h1></center>
     </div>
       <div class="q-pa-md" style="max-width: 100%; margin-top:10px;">  
          <q-input outlined label="Id" v-model="departamentoSelecionado.id_dep" style="margin-bottom: 10px"
