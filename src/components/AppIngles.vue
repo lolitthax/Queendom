@@ -137,8 +137,8 @@
             </div>
             <div class="service depar">
                 <q-icon name="developer_board" style="font-size: 30px; color: #2c3e50; margin-bottom: 10px; "></q-icon>
-                <h2>Information technology (T.I)</h2>
-                <p>The incredible world of T.I, complex, logical and creative! Ideal for those who love coffee and dark circles, technology and its features! In T.I it is unacceptable to serve weak emotions and coffee! 
+                <h2>Information technology (I.T)</h2>
+                <p>The incredible world of I.T, complex, logical and creative! Ideal for those who love coffee and dark circles, technology and its features! In I.T it is unacceptable to serve weak emotions and coffee! 
                 </p>
             </div>
         </div>
@@ -173,7 +173,7 @@ export default {
   data () {
     return {
       slide: 'style',
-      lorem: 'Bad boy? T.I nerd? Fitting in labels or stereotypes is not something he likes, not when there are bugs to fix, games to win and one more note to decorate! Behind her dark circles and bad mood is a pure and understandable heart.',
+      lorem: 'Bad boy? I.T nerd? Fitting in labels or stereotypes is not something he likes, not when there are bugs to fix, games to win and one more note to decorate! Behind her dark circles and bad mood is a pure and understandable heart.',
       lorem2:'Owner of an energetic personality, she is never focused on just one thing. Some call her a mad scientist, others believe she should temper her ever-evident enthusiasm to show her best, but for who does she want to prove herself ?',
       lorem3:'Very popular with students for his kindness and talent, Kae is loved by all departments. His education and self-control means that he is always taking all eyes on himself. Despite this, he expresses all his mystery and feelings in his complex creations to understand, but still beautiful.'
     }
