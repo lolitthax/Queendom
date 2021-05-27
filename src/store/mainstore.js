@@ -169,7 +169,7 @@ const actions = {
   obterDepartamentos ({ commit }){
     api.get('/departamento')
     .then((response) => {
-      commit('SET_DEPARTAMENTO', response.data)
+      commit('SET_DEPARTAMENTOS', response.data)
     })
   },
   selecionarDepartamento ({ commit }, departamentoId){
