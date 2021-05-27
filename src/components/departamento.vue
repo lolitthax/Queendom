@@ -27,7 +27,7 @@
             <div class="service depar">
                 <q-icon name="developer_board" style="font-size: 30px; color: #2c3e50; margin-bottom: 10px; "></q-icon>
                 <h2>Tecnologia da Informação (T.I)</h2>
-                <p>O incrível mundo do T.I, complexo, lógico e criativo! Ideal para quem ama <strike>café e olheiras, tecnologia</strike> e suas funcionalidades! Em T.I é inadmissível servir emoções e café fracos! 
+                <p>O incrível mundo do T.I, complexo, lógico e criativo! Ideal para quem ama <strike>café e olheiras</strike> tecnologia e suas funcionalidades! Em T.I é inadmissível servir emoções e café fracos! 
                 </p>
             </div>
         </div>

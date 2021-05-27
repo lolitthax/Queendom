@@ -138,7 +138,7 @@
             <div class="service depar">
                 <q-icon name="developer_board" style="font-size: 30px; color: #2c3e50; margin-bottom: 10px; "></q-icon>
                 <h2>Information technology (I.T)</h2>
-                <p>The incredible world of I.T, complex, logical and creative! Ideal for those who love coffee and dark circles, technology and its features! In I.T it is unacceptable to serve weak emotions and coffee! 
+                <p>The incredible world of I.T, complex, logical and creative! Ideal for those who love <strike>coffee and dark circles</strike> technology and its features! In I.T it is unacceptable to serve weak emotions and coffee! 
                 </p>
             </div>
         </div>
