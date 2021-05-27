@@ -8,7 +8,7 @@ const state = {
   paqueras: [],
   paqueraSelecionado: '',
   departamentos: [],
-  departamentoSlecionado: ''
+  departamentoSelecionado: ''
 
 }
 
@@ -191,7 +191,7 @@ const getters = {
   paqueras: (state) => state.paqueras,
   paqueraSelecionado: (state) => state.paqueraSelecionado,
   departamentos: (state) => state.departamentos,
-  departamentoSelecionado: (state) => state.departamentoSlecionado
+  departamentoSelecionado: (state) => state.departamentoSelecionado
   
   
 

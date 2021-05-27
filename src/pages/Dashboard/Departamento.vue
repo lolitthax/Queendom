@@ -20,7 +20,7 @@
   
       <q-item v-for="departamento in departamentos" :key="departamento.id_dep">
         <q-item-section avatar top>
-          <q-icon name="school" color="black" size="34px" />
+          <q-icon name="library_books" color="black" size="34px" />
         </q-item-section>
 
         <q-item-section top>
@@ -37,7 +37,6 @@
         <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
             <q-btn  size="12px" flat dense round icon="edit" color="indigo"  @click="alterar(departamento.id_dep)" />
-              <q-btn  size="12px" flat dense round icon="add" color="green" />
             <q-btn  size="12px" flat dense round icon="delete" color="red-14" />
             
           </div>  
