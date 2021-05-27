@@ -16,6 +16,7 @@
       </q-tabs>
 
  <center> <h1>Lista - Sobre</h1></center>
+ <center><q-btn to="/adsobre" label="Novo" icon="add" outline color="green" /></center>
  <q-list bordered class="rounded-borders">
   
       <q-item v-for="sobre in sobres" :key="sobre.id">

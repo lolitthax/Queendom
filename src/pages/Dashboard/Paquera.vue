@@ -16,6 +16,8 @@
       </q-tabs>
 
  <center> <h1>Lista - Paqueras</h1></center>
+ <center><q-btn to="/adpaquera" label="Novo" icon="add" outline color="green" /></center>
+
  <q-list bordered class="rounded-borders">
   
       <q-item v-for="paquera in paqueras" :key="paquera.id_paq">

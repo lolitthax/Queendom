@@ -16,6 +16,7 @@
       </q-tabs>
 
  <center> <h1>Lista - Departamentos</h1></center>
+ <center><q-btn to="/addepartamento" label="Novo" icon="add" outline color="green" /></center>
  <q-list bordered class="rounded-borders">
   
       <q-item v-for="departamento in departamentos" :key="departamento.id_dep">
