@@ -20,7 +20,7 @@
   
       <q-item v-for="departamento in departamentos" :key="departamento.id_dep">
         <q-item-section avatar top>
-          <q-icon name="library_books" color="black" size="34px" />
+          <q-icon name="school" color="black" size="34px" />
         </q-item-section>
 
         <q-item-section top>
