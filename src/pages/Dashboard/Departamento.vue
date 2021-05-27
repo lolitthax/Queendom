@@ -37,6 +37,7 @@
         <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
             <q-btn  size="12px" flat dense round icon="edit" color="indigo"  @click="alterar(departamento.id_dep)" />
+              <q-btn  size="12px" flat dense round icon="add" color="green" />
             <q-btn  size="12px" flat dense round icon="delete" color="red-14" />
             
           </div>  

@@ -39,11 +39,11 @@ const mutations = {
     state.paqueras.push(paquera)
   },
   SELECIONAR_PAQUERA(state,paqueraId){
-    const index = state.paqueras.findIndex((p) => p.id === paqueraId)
+    const index = state.paqueras.findIndex((p) => p.id_paq === paqueraId)
     state.paqueraSelecionado = state.paqueras[index]
   },
   ALTERAR_PAQUERA(state,paquera){
-    const index = state.paqueras.findIndex((p) => p.id === paqueraId)
+    const index = state.paqueras.findIndex((p) => p.id_paq === paqueraId)
     state.paqueras.set(index,paquera)
   },
 
@@ -55,11 +55,11 @@ const mutations = {
   state.departamentos.push(departamento)
  },
  SELECIONAR_DEPARTAMENTO(state,departamentoId){
-  const index = state.departamentos.findIndex((d) => d.id === departamentoId)
+  const index = state.departamentos.findIndex((d) => d.id_dep === departamentoId)
   state.departamentoSelecionado = state.departamentos[index]
  },
  ALTERAR_DEPARTAMENTO(state, departamento){
-  const index = state.departamentos.findIndex((d) => d.id === departamentoId)
+  const index = state.departamentos.findIndex((d) => d.id_dep === departamentoId)
   state.departamentos.set(index,departamento)
  }
 
@@ -149,7 +149,7 @@ const actions = {
     commit('SELECIONAR_PAQUERA', paqueraId)
   },
   alterarPaquera({ commit }, paquera){
-    api.put('/paquera/'+ paquera.id,paquera)
+    api.put('/paquera/'+ paquera.id_paq,paquera)
     .then((response) => {
       commit('ALTERAR_PAQUERA', response.data)
     })
@@ -176,7 +176,7 @@ const actions = {
     commit('SELECIONAR_DEPARTAMENTO', departamentoId)
   },
   alterarDepartamento({ commit }, departamento){
-    api.put('/departamento/'+ departamento.id,departamento)
+    api.put('/departamento/'+ departamento.id_dep,departamento)
     .then((response) => {
       commit('ALTERAR_DEPARTAMENTO', response.data)
     })
