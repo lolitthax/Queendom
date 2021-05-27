@@ -1,29 +1,29 @@
 <template>
-    <div>
-        <main id="modal-promocao" class="modal-container">
-            <div class="modal">
-
+        <main id="modal-promocao" class="modal-r">
+            <div class="modal-container">
                 <div class="lines">
                     <h3 class="subtitle-form">Login</h3>
                     <form>
                         <input type="text" class="input" placeholder="E-mail:"  v-model="usuario">
+                        <br>
+                        <br>
                         <input type="password" name="password" class="input" placeholder="Senha:" v-model="senha" >
-                   
-                           <div class="q-gutter-md q-pb-md">
-                <q-btn color="primary" label="Login" @click="efetuarLogin()" />
-              </div> 
-              <div class="q-gutter-md q-pb-md" v-if="token">
+                        <br>
+                        <br>
+                <div class="q-gutter-md q-pb-md" v-if="token">
                 <q-btn color="primary" label="Logout" @click="efetuarLogout()" />
               </div> 
-                        
-                    
-                    </form>
+             </form>
                 </div>
+                <div class="holes hole-top "></div>
                 <div class="holes hole-middle "></div>
                 <div class="holes hole-bottom "></div>
+                <div class="q-gutter-md q-pb-md botao">
+                <q-btn flat rounded color="red-8" style="font-weight: bold;" type="a" href="/" label="Voltar" />
+                <q-btn outline rounded style="font-weight: bold;" color="green" label="Login" @click="efetuarLogin()" />
+                </div> 
             </div>
         </main>
-    </div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
@@ -44,11 +44,10 @@ export default {
       if (this.token) {
         this.$router.push('/dashboard')
       }
-
     },
     efetuarLogout () {
       this.logout()
-    },
+    }
   },
   computed: {
     ...mapGetters('mainstore', ['token'])
@@ -56,55 +55,45 @@ export default {
   created (){
       this.$q.loading.show({
           message:'Carregando...',
-       
       })
       this.timer = setTimeout(() =>{ 
           this.$q.loading.hide()
           this.timer = void 0
       }, 1000)
   }
-
 }
 </script>
 <style scoped>
 .modal-container {
+    position: center;
     /* width: 100vw;
     height: 100vh; */
-    position: fixed;
-    top: 0px;
-    left: 0px;
+   
     z-index: 2000;
     /* display: none; */
     justify-content: center;
     align-items: center;
 }
-
-.modal,
-.modal-r::before {
+.modal-r:before {
     content: '';
     position: absolute;
     left: 45px;
     top: -2px;
     height: 100%;
-    width: 2px;
-    background: rgba(255, 0, 0, 0.4);
+    background: #eb3b5a;
 }
 
 .modal-container.mostrar {
-    display: flex;
+    display: center;
 }
-
-.modal {
-    background: white;
-    width: 30%;
-    height: 250px;
-    min-width: 400px;
-    padding: 40px;
-    border: 10px solid #a8d8ea;
-    box-shadow: 0 0 0 10px white;
-    position: relative;
-    margin: auto;
-    margin-top: 300px;
+@media screen and (max-width: 400px) {
+  .modal-r{
+    width: 50%;
+  }
+}
+.botao{
+    display: flex;
+    justify-content: space-around;
 }
 
 .modal-r {
@@ -114,10 +103,11 @@ export default {
     min-width: 400px;
     padding: 40px;
     border: 10px solid #a8d8ea;
+    border-radius: 5%;
     box-shadow: 0 0 0 10px white;
     position: relative;
     margin: auto;
-    margin-top: 300px;
+    margin-top: 200px;
 }
 
 .lines {
@@ -135,6 +125,7 @@ export default {
     color: #eb3b5a;
     top: 65px;
     left: 55px;
+    font-weight: bold;
     bottom: 10px;
     right: 10px;
     line-height: 25px;
@@ -158,7 +149,7 @@ export default {
 }
 
 .hole-middle {
-    top: 50%;
+    top: 45%;
 }
 
 .hole-bottom {
@@ -216,5 +207,7 @@ export default {
     border: 0 none;
     outline: 0;
 }
+
+
 
 </style>

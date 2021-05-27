@@ -25,6 +25,14 @@ const routes = [{
 
     },
     {
+        path: '/ingles',
+        component: () => import ('components/AppIngles.vue'),
+        children: [
+            { path: '', component: () => import('pages/Ingles.vue')}
+        ]
+
+    },
+    {
         path: '/registro',
         component: () =>
             import ('pages/registro.vue'),

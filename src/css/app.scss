@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 body,
 html {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comforta', cursive;
     margin: 0;
     padding: 0;
     background-color: 236, 240, 241;
@@ -39,6 +39,7 @@ html {
     position: relative;
     font-weight: bold;
     text-transform: uppercase;
+    right:15px;
 }
 
 .menu_open {
@@ -60,7 +61,7 @@ html {
 
 /* pop up */
 
-.modal-container {
+.-container {
     width: 100vw;
     height: 100vh;
     background: rgba(36, 34, 35, 0.384);
@@ -96,7 +97,7 @@ html {
     padding: 40px;
     border: 10px solid #a8d8ea;
     box-shadow: 0 0 0 10px white;
-    position: relative;
+    position: center;
     margin: auto;
     margin-top: 300px;
 }
@@ -110,7 +111,7 @@ html {
     border: 10px solid #a8d8ea;
     box-shadow: 0 0 0 10px white;
     position: relative;
-    margin: auto;
+    margin: center;
     margin-top: 300px;
 }
 
@@ -126,13 +127,13 @@ html {
     font-size: 2rem;
     text-transform: uppercase;
     text-align: center;
-    color: #eb3b5a;
+    color: lines;
     top: 65px;
     left: 55px;
     bottom: 10px;
     right: 10px;
     line-height: 25px;
-    font-family: 'Indie Flower';
+    font-family: 'Comfortaa', cursive;
     overflow: hidden;
     outline: none;
 }
@@ -259,6 +260,7 @@ li {
     font-weight: bold;
     text-transform: uppercase;
     margin-right: 5%;
+    left:15px;
 }
 
 .btnjogar2 {
@@ -282,6 +284,14 @@ li {
     text-align: center;
     font-size: large;
 }
+.title2 {
+    color: rgba(30, 39, 46, 1.0);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+    position: center;
+}
+
 
 .border {
     width: 30%;
@@ -302,8 +312,8 @@ li {
 .cen {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 0 100px;
+    max-width: 1200%;
+    padding: 20px;
     margin: auto;
     overflow: hidden;
     flex-wrap: wrap;
@@ -697,7 +707,8 @@ html{
     position: fixed;
     width: 50px;
     height: 50px;
-    background:#EA2027;
+    background:#aa96da;
+    border-radius: 50%;
     bottom: 40px;
     right: 50px;
   
@@ -760,6 +771,7 @@ html{
     position: absolute;
 }
 .menuresp-item{
+    color: #aa96da;
     display: block;
     font-size: 30px;
     text-decoration: none;
@@ -790,7 +802,7 @@ html{
     height: 5px;
     width: 100%;
     border-radius: 30px;
-    background: #f16234;
+    background: #fc6dae;
     transition: 0.25s ease-in-out;
   }
   
