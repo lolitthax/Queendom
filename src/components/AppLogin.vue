@@ -44,10 +44,11 @@ export default {
       if (this.token) {
         this.$router.push('/dashboard')
       }
+
     },
     efetuarLogout () {
       this.logout()
-    }
+    },
   },
   computed: {
     ...mapGetters('mainstore', ['token'])
@@ -55,12 +56,14 @@ export default {
   created (){
       this.$q.loading.show({
           message:'Carregando...',
+       
       })
       this.timer = setTimeout(() =>{ 
           this.$q.loading.hide()
           this.timer = void 0
       }, 1000)
   }
+
 }
 </script>
 <style scoped>
