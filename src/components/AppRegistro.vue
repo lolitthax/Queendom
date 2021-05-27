@@ -22,6 +22,19 @@
         </div>
     </main>
 </template>
+<script>
+export default {
+      created (){
+      this.$q.loading.show({
+          message:'Carregando...',
+      })
+      this.timer = setTimeout(() =>{ 
+          this.$q.loading.hide()
+          this.timer = void 0
+      }, 1000)
+  }
+}
+</script>
 <style scoped>
 .modal-container {
     /* width: 100vw;
