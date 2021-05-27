@@ -37,7 +37,7 @@
         <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
             <q-btn  size="12px" flat dense round icon="edit" color="indigo"  @click="alterar(sobre.id)" />
-            <q-btn  size="12px" flat dense round icon="delete" color="red-14" />
+            <q-btn  size="12px" flat dense round icon="delete" color="red-14" @click="remover(sobre.id)"/>
             
           </div>  
         </q-item-section>
@@ -57,9 +57,30 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'PageListaSobre',
   methods: {
-    ...mapActions('mainstore', ['obterSobres', 'selecionarSobre']),
+    ...mapActions('mainstore', ['obterSobres', 'selecionarSobre', 'removerSobre']),
     abrirCadastroSobre () {
       this.$router.push('/adsobre')
+    },
+    remover (sobreId){
+      this.$q.dialog({
+        title: 'Confirmar',
+        message: 'Você deseja excluir este campo?',
+        cancel: {
+          label: 'Cancelar'
+        },
+        ok:{
+          label: 'Deletar'
+        },
+        persistent:true
+      }).onOk(() => {
+        this.removerSobre(sobreId)
+            Notify.create({ color: 'positive', position: 'top',
+            message: 'Item deletado com sucesso',
+            icon: 'verify'
+    })  
+      }).onCancel(() => {
+
+      })
     },
     alterar (sobreId){  
       this.selecionarSobre(sobreId)
