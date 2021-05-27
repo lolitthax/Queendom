@@ -50,6 +50,10 @@ const mutations = {
     const index = state.paqueras.findIndex((p) => p.id_paq === paqueraId)
     state.paqueras.set(index,paquera)
   },
+  REMOVER_PAQUERA(state, paqueraId){
+    const index = state.paqueras.findIndex((p)=> p.id_paq === paqueraId)
+    state.paqueras.splice(index, 1)
+  },
 
   //DEPARTAMENTOS
  SET_DEPARTAMENTOS(state, departamentos){
@@ -65,8 +69,11 @@ const mutations = {
  ALTERAR_DEPARTAMENTO(state, departamento){
   const index = state.departamentos.findIndex((d) => d.id_dep === departamentoId)
   state.departamentos.set(index,departamento)
+ },
+ REMOVER_DEPARTAMENTO(state, departamentoId){
+  const index = state.departamentos.findIndex((d)=> d.id_dep === departamentoId)
+    state.departamentos.splice(index, 1)
  }
-
 }
 
 const actions = { 
@@ -164,6 +171,12 @@ const actions = {
       commit('ALTERAR_PAQUERA', response.data)
     })
   },
+  removerPaquera ({ commit }, paqueraId){
+    api.delete('/paquera/'+ paqueraId)
+    .then((response) => {
+      commit('REMOVER_PAQUERA', paqueraId)
+    })
+  },
 
   //DEPARTAMENTO
   adicionarDepartamento ({commit}, departamento){
@@ -190,7 +203,13 @@ const actions = {
     .then((response) => {
       commit('ALTERAR_DEPARTAMENTO', response.data)
     })
-  }
+  },
+  removerDepartamento ({ commit }, departamentoId){
+    api.delete('/departamento/'+ departamentoId)
+    .then((response) => {
+      commit('REMOVER_DEPARTAMENTO', departamentoId)
+    })
+  },
 
 }
 
