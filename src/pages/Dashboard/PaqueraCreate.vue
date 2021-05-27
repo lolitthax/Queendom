@@ -1,22 +1,16 @@
 <template>
   <div>
-    <div class="q-gutter-y-md" style="max-width: 100%">
-  
-
-      <q-tabs
-        inline-label
-        mobile-arrows
-        class="bg-pink-5 text-white shadow-2"
-      >
-        <q-tab name="mails" icon="library_books" label="Sobre" />
-        <q-tab name="alarms" icon="favorite" label="Personagens" />
-        <q-tab name="movies" icon="school" label="Departamentos" />
-          <q-tab name="movies" icon="home" label="Voltar a Dashboard" />
-
-      </q-tabs>
+  <header class="navbar">
+  <q-btn  size="16px" flat  icon="home" color="white" to="/dashboard" label="Dashboard" />
+  <q-btn  size="16px" flat  icon="school" color="white" to="/departamento" label="Departamento" />
+    <q-btn  size="16px" flat  icon="favorite" color="white" to="/paquera" label="Paqueras" />
+     <q-btn  size="16px" flat icon="book" color="white" to="/sobre" label="Sobre" />
+        <q-btn  size="16px" flat  icon="logout" color="white" to="/login" label="Sair" />
+   
+  </header>
 
  <center> <h1>Paqueras</h1> </center>
-    </div>
+    
       <div class="q-pa-md" style="max-width: 100%; margin-top:10px;">  
          <q-input outlined label="Título" v-model="titulo_paq" style="margin-bottom: 10px"/>  
     <q-input
@@ -54,4 +48,17 @@ export default{
     }
 }
 </script>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.navbar{
+  background-color:#14213d;
+  overflow: hidden;
+
+}
+.navbar a:hover{
+  background-color: #FD7272;
+  color: #14213d;
+  font-weight: bold;
+}
+</style>
 
