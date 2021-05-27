@@ -37,7 +37,7 @@
         <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
             <q-btn  size="12px" flat dense round icon="edit" color="indigo"  @click="alterar(paquera.id_paq)" />
-            <q-btn  size="12px" flat dense round icon="delete" color="red-14" />
+            <q-btn  size="12px" flat dense round icon="delete" color="red-14"  @click="remover(paquera.id_paq)"/>
             
           </div>  
         </q-item-section>
@@ -53,18 +53,40 @@
 </template>
 
 <script>
+
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'PageListaPaquera',
   methods: {
-    ...mapActions('mainstore', ['obterPaqueras', 'selecionarPaquera']),
+    ...mapActions('mainstore', ['obterPaqueras', 'selecionarPaquera', 'removerPaquera']),
     abrirCadastroPaquera () {
       this.$router.push('/adpaquera')
     },
     alterar (paqueraId){  
       this.selecionarPaquera(paqueraId)
       this.$router.push('/edpaquera')
-    }
+    },
+      remover (paqueraId){
+      this.$q.dialog({
+        title: 'Confirmar',
+        message: 'Você deseja excluir este campo?',
+        cancel: {
+          label: 'Cancelar'
+        },
+        ok:{
+          label: 'Deletar'
+        },
+        persistent:true
+      }).onOk(() => {
+        this.removerPaquera(paqueraId)
+            Notify.create({ color: 'positive', position: 'top',
+            message: 'Item deletado com sucesso',
+            icon: 'verify'
+    })  
+      }).onCancel(() => {
+
+      })
+    },
   },
   computed: {
     ...mapGetters('mainstore', ['paqueras'])
