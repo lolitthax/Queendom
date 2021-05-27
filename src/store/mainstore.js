@@ -125,7 +125,7 @@ const actions = {
   alterarSobre({ commit }, sobre){
     api.put('/sobre/'+ sobre.id, sobre)
     .then((response) => {
-      commit('ALTERAR_PRODUTO', response.data)
+      commit('ALTERAR_SOBRE', response.data)
     })
   },
   //PAQUERA
