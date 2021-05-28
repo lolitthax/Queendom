@@ -37,7 +37,7 @@ const mutations = {
   },
 
   REMOVER_SOBRE (state, sobreId){
-    const index = state.sobres.findIndex((s)=> s.id === sobreId)
+    const index = state.sobres.findIndex((s) => s.id === sobreId)
     state.sobres.splice(index, 1)
   },
 
@@ -179,9 +179,11 @@ const actions = {
       commit('SET_PAQUERAS', response.data)
     })
   },
+
   selecionarPaquera ({ commit }, paqueraId){
     commit('SELECIONAR_PAQUERA', paqueraId)
   },
+
   alterarPaquera({ commit }, paquera){
     api.put('/paquera/'+ paquera.id_paq,paquera)
     .then((response) => {
@@ -217,7 +219,7 @@ const actions = {
   selecionarDepartamento ({ commit }, departamentoId){
     commit('SELECIONAR_DEPARTAMENTO', departamentoId)
   },
-  
+
   alterarDepartamento({ commit }, departamento){
     api.put('/departamento/'+ departamento.id_dep,departamento)
     .then((response) => {

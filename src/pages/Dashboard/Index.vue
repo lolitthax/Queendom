@@ -17,7 +17,6 @@
 .navbar{
   background-color:#14213d;
   overflow: hidden;
-
 }
 .navbar a:hover{
   background-color: #FD7272;
