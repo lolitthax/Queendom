@@ -16,40 +16,50 @@ const mutations = {
   SET_TOKEN (state, token) {      
     state.token = token
   },
+
   //SOBRE
   SET_SOBRES (state, sobres){
     state.sobres = sobres
   },
+
   ADICIONAR_SOBRE(state, sobre){
     state.sobres.push(sobre)
   },
+
   SELECIONAR_SOBRE (state,sobreId) {
     const index = state.sobres.findIndex((s) => s.id === sobreId)
     state.sobreSelecionado = state.sobres[index]
   },
+
   ALTERAR_SOBRE (state, sobre){
-    const index = state.sobre.findIndex((s) => s.id === sobre.id)
+    const index = state.sobres.findIndex((s) => s.id === sobreId)
     state.sobres.set(index, sobre)
   },
+
   REMOVER_SOBRE (state, sobreId){
     const index = state.sobres.findIndex((s)=> s.id === sobreId)
     state.sobres.splice(index, 1)
   },
+
   //PAQUERAS
   SET_PAQUERAS(state, paqueras){
     state.paqueras = paqueras
   },
+
   ADICIONAR_PAQUERA(state,paquera){
     state.paqueras.push(paquera)
   },
+
   SELECIONAR_PAQUERA(state,paqueraId){
     const index = state.paqueras.findIndex((p) => p.id_paq === paqueraId)
     state.paqueraSelecionado = state.paqueras[index]
   },
+
   ALTERAR_PAQUERA(state,paquera){
     const index = state.paqueras.findIndex((p) => p.id_paq === paqueraId)
     state.paqueras.set(index,paquera)
   },
+
   REMOVER_PAQUERA(state, paqueraId){
     const index = state.paqueras.findIndex((p)=> p.id_paq === paqueraId)
     state.paqueras.splice(index, 1)
@@ -59,17 +69,21 @@ const mutations = {
  SET_DEPARTAMENTOS(state, departamentos){
    state.departamentos = departamentos
  },
+
  ADICIONAR_DEPARTAMENTO(state,departamento){
   state.departamentos.push(departamento)
  },
+
  SELECIONAR_DEPARTAMENTO(state,departamentoId){
   const index = state.departamentos.findIndex((d) => d.id_dep === departamentoId)
   state.departamentoSelecionado = state.departamentos[index]
  },
+
  ALTERAR_DEPARTAMENTO(state, departamento){
   const index = state.departamentos.findIndex((d) => d.id_dep === departamentoId)
   state.departamentos.set(index,departamento)
  },
+
  REMOVER_DEPARTAMENTO(state, departamentoId){
   const index = state.departamentos.findIndex((d)=> d.id_dep === departamentoId)
     state.departamentos.splice(index, 1)
@@ -130,15 +144,18 @@ const actions = {
       commit('SET_SOBRES', response.data)
     })
   },
+
   selecionarSobre ({ commit }, sobreId) {
     commit('SELECIONAR_SOBRE', sobreId)
   },
+
   alterarSobre({ commit }, sobre){
     api.put('/sobre/'+ sobre.id, sobre)
     .then((response) => {
       commit('ALTERAR_SOBRE', response.data)
     })
   },
+
   removerSobre ({ commit }, sobreId){
     api.delete('/sobre/'+ sobreId)
     .then((response) => {
@@ -171,6 +188,7 @@ const actions = {
       commit('ALTERAR_PAQUERA', response.data)
     })
   },
+
   removerPaquera ({ commit }, paqueraId){
     api.delete('/paquera/'+ paqueraId)
     .then((response) => {
@@ -195,9 +213,11 @@ const actions = {
       commit('SET_DEPARTAMENTOS', response.data)
     })
   },
+
   selecionarDepartamento ({ commit }, departamentoId){
     commit('SELECIONAR_DEPARTAMENTO', departamentoId)
   },
+  
   alterarDepartamento({ commit }, departamento){
     api.put('/departamento/'+ departamento.id_dep,departamento)
     .then((response) => {
