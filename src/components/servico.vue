@@ -17,5 +17,7 @@
                 <p>Quais pronomes gostaria que os paqueras usassem com você? Buscamos otimizar a melhor experiência e sabemos o quão importante um pronome é e o peso que ele carrega. Seja livre, seja quem quiser ser! Nós o/a apoiaremos! </p>
             </div>
         </div>
+        <q-img
+                src="../assets/infograma.png" style="heigth:500px;width: 700px; " contain></q-img>
     </section>
 </template>
